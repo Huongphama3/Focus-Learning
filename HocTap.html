@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>HocTap</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf8" />
+<link rel="stylesheet" type="text/css" href="style.css">
+  <script src="https://kit.fontawesome.com/e328a263fe.js" crossorigin="anonymous"></script>
+ <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+ <style type="text/css">
+#clockdiv h2{font-family:'Roboto';font-weight:100;color:#034688;text-align:center;font-size:40px;margin:0 0 16px}
+#clockdiv{font-family:sans-serif;color:#fff;background:rgba(255,255,255,0.63);display:inline-block;font-weight:100;text-align:center;font-size:30px;margin:0px auto;padding:0px;width:320px}
+#clockdiv > div{padding:10px 35px;border-radius:3px;background:#034688;display:inline-block}
+#clockdiv div > span{padding:0;border-radius:3px;font-size:58px;display:inline-block}
+#clockdiv .smalltext{padding-top:5px;font-size:16px}
+</style>
+
+</head>
+ 
+<body style=" background-color: #F0F2F5">
+ 
+<div class="wrap"> 
+ 
+    <div id="header">
+      <!--đây là box tìm kiếm-->
+    <div id="mot">
+  <div class="box">
+      <input type="text" placeholder="Search here...">
+      <a><i class="fas fa-search-location"></i></a>
+    </div>
+    </div>
+
+
+
+    <div id="hai">
+       <div class="icon-bar">
+ <a href="#"><i class="fas fa-book-open"></i></a>
+    <a href="#"><i class="fas fa-user"></i></a>
+
+      <a class="active" href="#"><i class="fas fa-home"></i></a> 
+
+  <a href="#"><i class="fas fa-user-friends"></i></a> 
+
+  <a href="#"><i class="fas fa-plus-circle"></i></a>
+
+
+</div>
+  </div>
+
+
+    <div id="ba">
+        
+    </div>
+     
+    </div>
+</div>
+     
+    <div class="main"> <!-- bao phần nội dung chính -->
+        <div class="nav1">
+            <ol class="none">
+                <div class="home">
+                <li class="Home" class="active" aria-hidden="true"><a aria-hidden="true"><img src="img/home.jpg" alt="" height="50px"></a></li>
+            </div>
+</br>
+            <div class="chat">
+                <li class="Chat" class="active"><a><img src="img/chat.jpg" alt="" height="50px"></a></li>
+            </div>
+
+</br>
+            <div class="friend">
+                <li class="Friend" class="active"><a><img src="img/friend.jpg" alt="" height="50px"></a></li>
+            </div>
+</br>
+            <div class="group">
+                <li class="Group" class="active"><a><img src="img/group.jpg" alt="" height="50px"></a></li>
+            </div>
+
+</br>
+             <div class="page">
+                <li class="Page" class="active"><a><img src="img/page.jpg" alt="" height="50px"></a></li>
+            </div>
+
+            </ol>
+<div>
+<p id="timer"></p>
+
+<script>
+// Set the date we're counting down to
+var countDownDate new = Date("August 8 2020 12:00").getTime();
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+    
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+    
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    
+  // Output the result in an element with id="demo"
+  document.getElementById("timer").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+    
+  // If the count down is over, write some text 
+  if (distance < 0) {
+    // clearInterval(x);
+
+    document.getElementById("timer").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
+</div>
+<!-- đây là đồng hồ đếm ngược-->
+<div>
+ <div id="clockdiv">
+  <h2>Countdown Clock</h2>
+  <div>
+    <span class="minutes"></span>
+    <div class="smalltext">Minutes</div>
+  </div>
+  <div>
+    <span class="seconds"></span>
+    <div class="smalltext">Seconds</div>
+  </div>
+</div>
+ 
+    <script type='text/javascript'>
+//<![CDATA[
+function getTimeRemaining(endtime) {
+  var t = Date.parse(endtime) - Date.parse(new Date());
+  var seconds = Math.floor((t / 1000) % 60);
+  var minutes = Math.floor((t / 1000 / 60) % 60);
+  var hours = Math.floor((t / (1000 * 60 * 60)) % 24);
+  var days = Math.floor(t / (1000 * 60 * 60 * 24));
+  return {
+    'total': t,
+    'minutes': minutes,
+    'seconds': seconds
+  };
+}
+
+function initializeClock(id, endtime) {
+  var clock = document.getElementById(id);
+  var minutesSpan = clock.querySelector('.minutes');
+  var secondsSpan = clock.querySelector('.seconds');
+
+  function updateClock() {
+    var t = getTimeRemaining(endtime);
+
+    minutesSpan.innerHTML = ('0' + t.minutes).slice(-2);
+    secondsSpan.innerHTML = ('0' + t.seconds).slice(-2);
+
+    if (t.total <= 0) {
+        alert("Đã đến giờ nghỉ giải lao rồi^^");
+     clearInterval(timeinterval);
+    }
+  }
+
+  updateClock();
+  var timeinterval = setInterval(updateClock, 1000);
+}
+
+var deadline = new Date(Date.parse(new Date()) + 1 * 15* 1000);
+initializeClock('clockdiv', deadline);
+
+//]]>
+</script>
+
+</div>
+        </div>
+<!--đây là phần nội dung-->
+         
+        <div class="content">
+
+  <!--cái này là đăng bài-->
+        	<div class="status">
+        		<h3>Một con vịt xòe ra 2 cái cánh</h3>
+                <div class="stt">
+  <a href=""><i class="far fa-smile"></i></a>
+  <a href=""><i class="far fa-image"></i></a>
+  <a href=""><i class="fas fa-share"></i></a>
+</div>
+        		
+        	</div>
+
+          <!--đây là phần bài đăng-->
+<div class="cnt1">
+    <p>Mình ôn thi lại nên có kha khá tài liệu Toán, Hoá, Sinh của các thầy cô. Nhưng do không thi nữa nên mình có ý định tặng free cho các bạn 2k2, 2k3 thi sắp tới. Ai cần thì ib hoặc cmt mail xuống phía dưới cho mình nhé. Chúc các bạn thi tốt</p>
+    <a href="#" ><img src="img/bai1.jpg" height="50%" width="50%" alt=""></a>
+    
+    <div class="cmt">
+
+  <a href=""><i class="far fa-thumbs-up"></i></a>
+  <a href=""><i class="far fa-comment"></i></a>
+  <a href=""><i class="fas fa-share"></i></a>
+</div>
+</div>
+</br>
+<div class="cnt1">
+    <p> Hướng dẫn sử dụng casio giải nhanh câu hàm số VDC Chào các em. Chị ôn thi lại nên có kha khá tài liệu Toán, Hoá, Sinh của các thầy cô. Nhưng do không thi nữa nên chị có ý định tặng free cho các bạn 2k2, 2k3 thi sắp tới. Ai cần thì ib hoặc cmt mail xuống phía dưới cho chị nhé. Chúc các em thi tốt</p>
+    <a href="" ><img src="img/bai2.jpg" height="50%" width="50%" alt=""></a>
+    <div class="cmt">
+  <a href=""><i class="far fa-thumbs-up"></i></a>
+  <a href=""><i class="far fa-comment"></i></a>
+  <a href=""><i class="fas fa-share"></i></a>
+</div>
+</div>
+</br>
+<div class="cnt1">
+    <p> Hướng dẫn sử dụng casio giải nhanh câu hàm số VDC Chào các em. Chị ôn thi lại nên có kha khá tài liệu Toán, Hoá, Sinh của các thầy cô. Nhưng do không thi nữa nên chị có ý định tặng free cho các bạn 2k2, 2k3 thi sắp tới. Ai cần thì ib hoặc cmt mail xuống phía dưới cho chị nhé. Chúc các em thi tốt</p>
+    <a href="" ><img src="img/bai3.jpg" height="100%" width="100%" alt=""></a>
+    <div class="cmt">
+  <a href=""><i class="far fa-thumbs-up"></i></a>
+  <a href=""><i class="far fa-comment"></i></a>
+  <a href=""><i class="fas fa-share"></i></a>
+</div>
+</div>
+
+
+        </div>  
+
+
+
+        <div class="nav2">
+        </div>
+    </div> <!-- kết thúc nội dung chính -->
+   
+    <div id="footer"> <!-- phần header -->
+        <div>Bản quyền thuộc Forcous Learning</div>
+    </div>
+     
+</div> <!-- sử dụng 1 div bao hết nội dung web lại -->
+ 
+</body>
+ 
+</html>

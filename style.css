@@ -1,0 +1,330 @@
+<style>
+body
+{
+    margin: 0 auto; /* canh bố cục đều 2 bên */
+    padding: 0;
+    width: 1640px;
+    font-family: Segoe UI Historic, Segoe UI, Helvetica, Arial, sans-serif;
+
+}
+ 
+.wrap
+{
+    width: 1640px; /* kích thước chiều rộng trang web */
+    float: left; /* canh div từ trái sang */
+    border:1px solid #AAA;
+     
+}
+ 
+/* id="header" thì phải định nghĩa bằng dấu # và tên id (header) */
+#header 
+{
+    height: 50px;
+    width: 1640px; /* kích thước chiều rộng trang web */
+    float: left; /* canh div từ trái sang */
+
+}
+ 
+.main
+{
+    width: 1640px; /* kích thước chiều rộng trang web */
+    float: left; /* canh div từ trái sang */
+}
+ 
+/* chiều rộng của 2 vùng div "nav" và "content" phải bằng tổng độ rộng của trang */
+/* chú ý padding, border, margin có thể ảnh hưởng đến độ rộng của trang web */
+.nav1
+{
+	height: 700px;
+    width: 350px; /* kích thước chiều rộng của vùng thanh bên */
+    float: left; /* canh div từ trái sang */
+    border-right:1px solid #999; /* tạo viền bên phải */
+    overflow: auto;
+    margin: 0px;
+}
+.nav2
+{
+	height: 700px;
+    width: 210px; /* kích thước chiều rộng của vùng thanh bên */
+    float: right; /* canh div từ trái sang */
+    /* tạo viền bên phải */
+    overflow: auto;
+} 
+.content
+{
+	max-height: 100%;
+    width: 700px; /* kích thước chiều rộng của vùng nội dung */
+    float: left; /* canh div từ trái sang */
+   
+}
+.status
+{
+	height: 100px;
+	width: 1080px;
+	background-color: tomato;
+}
+ 
+#footer
+{
+    width: 1570px; /* kích thước chiều rộng của vùng nội dung */
+    float: left; /* canh div từ trái sang */
+    border-top:1px dashed #AAA;
+    background-color:#000000;
+            text-align:center;
+                 color: white;
+    padding:25px;
+            font-size:14px;
+}
+#mot{
+    height: 50px;
+    width: 350px; /* kích thước chiều rộng của vùng thanh bên */
+    float: left; /* canh div từ trái sang */
+    background-color: white;
+}
+#hai{
+    height: 50px;
+    width: 1080px; /* kích thước chiều rộng của vùng nội dung */
+    float: left;
+    background-color:#F0F2F5;
+}
+#ba{
+    height: 50px;
+    width: 210px; /* kích thước chiều rộng của vùng thanh bên */
+    float: right; /* canh div từ trái sang */
+
+    background-color: #F0F2F5;
+}
+/*button tìm kiếm*/
+
+a {
+  color: black;
+  text-align: center;
+  width: 50px;
+  font-size: 18px;
+}
+input {
+  background: none;
+  outline: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  width: 0px;
+  transition: 0.8s ease;
+  color:black ;
+  font-size: 18px;
+  font-weight: 600;
+  font-family:  Segoe UI Historic, Segoe UI, Helvetica, Arial, sans-serif;
+}
+.box {
+  height: 50px;
+  background-color: #F0F2F5;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+input::placeholder {
+  color: #C3C5C8;
+}
+
+.box:hover input {
+  width: 200px;
+  margin: 0 20px;
+  border-bottom: 2px solid #C3C5C8;
+}
+ 
+input:focus {
+  width: 200px;
+  margin: 0 20px;
+  border-bottom: 2px solid #C3C5C8;
+}
+/*đây là đồng hồ*/
+
+#timer{
+  text-align: center;
+  font-size: 30px;
+  margin-top: 0px;
+  background-color: pink;
+}
+/*đây là cái đồng hồ đếm ngược này*/
+
+
+/* day là của phần hai*/
+.icon-bar {
+  width: 1080px;
+  background-color: #F0F2F5;
+  font-size: 30px;
+  height: 25px;
+}
+
+.icon-bar a {
+  float: left;
+  width: 200px;
+  text-align: center;
+  padding: 12px 0;
+  transition: all 0.3s ease;
+  color: black;
+  font-size: 30px;
+  height: 25px;
+}
+
+.icon-bar a:hover {
+  background-color: white;
+  font-size: 30px;
+  height: 25px;
+}
+
+.active {
+  background-color: #F0F2F5;
+}
+ol.none
+{
+    list-style-type: none;
+}
+/*đây là phần dọc nav1*/
+
+.home{
+
+  height: 50px;
+  background-color: white;
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 279px;
+}
+.home:hover input {
+  width: 200px;
+  margin: 0 0px;
+  border-bottom: 2px solid #C3C5C8;
+}
+.friend{
+ height: 50px;
+  background-color: white;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+   transition: all 0.3s ease;
+   width: 279px;
+}
+.friend:hover a {
+  width: 200px;
+  margin: 0 0px;
+transition: all 0.3s ease;
+}
+.group
+{
+   
+  height: 50px;
+  background-color: white;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 279px;
+}
+.group:hover input {
+  width: 200px;
+  margin: 0 0px;
+  border-bottom: 2px solid #C3C5C8;
+}
+.page
+{
+  height: 50px;
+  background-color: white;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 279px;
+}
+.page:hover input {
+  width: 200px;
+  margin: 0 0px;
+  border-bottom: 2px solid #C3C5C8;
+}
+.chat
+{
+
+  height: 50px;
+  background-color: white;
+  border-radius: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+ padding: 0px;
+  margin: 0px;
+  width: 279px;
+  
+}
+.chat:hover input {
+  width: 200px;
+  margin: 0 0px;
+  border-bottom: 2px solid #C3C5C8;
+  padding: 0;
+  margin: 0;
+}
+
+
+/*day la phan content*/
+            
+
+.cnt1{
+    background-color: white;
+    width: 1080px;
+
+}
+.cmt {
+
+  width: 1080px; /* Full-width */
+  background-color: #A1A1A1; /* Dark-grey background */
+  overflow: auto; /* Overflow due to float */
+}
+
+.cmt a {
+  float: left; /* Float links side by side */
+  text-align: center; /* Center-align text */
+  width: 33%; /* Equal width (5 icons with 20% width each = 100%) */
+  padding: 12px 0; /* Some top and bottom padding */
+  transition: all 0.3s ease; /* Add transition for hover effects */
+  color: white; /* White text color */
+  font-size: 25px; /* Increased font size */
+}
+
+.cmt a:hover {
+  background-color: white; /* Add a hover color */
+}
+
+.active {
+  background-color: #4CAF50; /* Add an active/current color */
+}
+
+/*đây là phần stt*/
+.stt {
+    height: 50px;
+  width: 1080px; /* Full-width */
+  background-color: #A1A1A1; /* Dark-grey background */
+  overflow: auto; /* Overflow due to float */
+}
+
+.stt a {
+  float: left; /* Float links side by side */
+  text-align: center; /* Center-align text */
+  width: 33%; /* Equal width (5 icons with 20% width each = 100%) */
+  padding: 12px 0; /* Some top and bottom padding */
+  transition: all 0.3s ease; /* Add transition for hover effects */
+  color: white; /* White text color */
+  font-size: 20px; /* Increased font size */
+}
+
+.stt a:hover {
+  background-color: white; /* Add a hover color */
+}
+
+.active {
+  background-color: #4CAF50; /* Add an active/current color */
+}
+
+
+</style>
